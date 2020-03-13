@@ -10,17 +10,15 @@ public class FailedLoginTests extends TestBase {
 
     @Test
     public void asUserTryToLogInWithIncorrectLoginAndPassword(){
-        LandingPage landingPage=new LandingPage();
-        TopMenuPage topMenuPage = new TopMenuPage();
-        LoginPage loginPage= new LoginPage();
+       LandingPage landingPage = new LandingPage();
 
-        landingPage.clickOnEnterStoreLink();
-        topMenuPage.clickOnSignInLink();
-        loginPage.typeIntoUserNameField("incorrect username");
-        loginPage.typeIntoPasswordField("admin");
-        loginPage.clickOnLoginButton();
-        loginPage.getWarningMessage();
-        String warningMessage=loginPage.getWarningMessage();
+        landingPage.clickOnEnterStoreLink()
+                .clickOnSignInLink()
+                .typeIntoUserNameField("incorrect username")
+                .typeIntoPasswordField("admin")
+                .clickOnLoginButton();
+        LoginPage loginPage= new LoginPage();
+        String warningMessage = loginPage.getWarningMessage();
         Assert.assertEquals(warningMessage,"Invalid username or password. Signon failed.");
     }
 }
