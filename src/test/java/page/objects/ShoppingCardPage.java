@@ -21,5 +21,6 @@ public class ShoppingCardPage {
     public void clickOnProceedToCheckout(){
         preceedToCheckoutButton.click();
         logger.info("Clicked on proceed to checkout");
+       // /fsdfsdfsdfsdfsfs
     }
 }
