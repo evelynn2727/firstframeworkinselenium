@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import driver.manager.DriverManager;
+import waits.WaitForElement;
 
 public class ShoppingCardPage {
     private Logger logger = LogManager.getRootLogger();
@@ -18,9 +19,10 @@ public class ShoppingCardPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void clickOnProceedToCheckout(){
+    public CheckoutPage clickOnProceedToCheckout(){
+        WaitForElement.waitUntilElementIsVisible(preceedToCheckoutButton);
         preceedToCheckoutButton.click();
         logger.info("Clicked on proceed to checkout");
-       // /fsdfsdfsdfsdfsfs
+        return new CheckoutPage();
     }
 }

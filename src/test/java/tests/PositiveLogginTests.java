@@ -1,25 +1,25 @@
 package tests;
 
+import driver.manager.DriverUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import page.objects.FooterPage;
 import page.objects.LandingPage;
 import page.objects.LoginPage;
-import page.objects.TopMenuPage;
+
+import static navigation.ApplicationURLs.LOGIN_URL;
 
 public class PositiveLogginTests extends TestBase {
 
     @Test
     public void asUserLoginUsingValidLoginAndPassword(){
-        LandingPage landingPage=new LandingPage();
+        DriverUtils.navigateToPage(LOGIN_URL);
+        LoginPage loginPage = new LoginPage();
 
-        boolean isBannerAfterLoginDisplayed = landingPage.clickOnEnterStoreLink()
-                .clickOnSignInLink()
+        boolean isBannerAfterLoginDisplayed = loginPage
                 .typeIntoUserNameField("j2ee")
                 .typeIntoPasswordField("j2ee")
                 .clickOnLoginButton()
                 .isBannerAfterLoginDisplayed();
         Assert.assertTrue(isBannerAfterLoginDisplayed);
     }
-
 }

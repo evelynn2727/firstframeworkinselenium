@@ -6,6 +6,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import driver.manager.DriverManager;
 
+import static navigation.ApplicationURLs.APPLICATION_URL;
+
 public class TestBase {
     protected WebDriver driver;
 
@@ -13,7 +15,7 @@ public class TestBase {
     public void beforeTest(){
         DriverManager.getWebDriver();
         DriverUtils.setInitialConfiguration();
-        DriverUtils.navigateToPage("http://przyklady.javastart.pl/jpetstore/");
+        DriverUtils.navigateToPage(APPLICATION_URL);
     }
 
     @AfterMethod

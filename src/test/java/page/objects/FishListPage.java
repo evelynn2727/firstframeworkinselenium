@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import driver.manager.DriverManager;
+import waits.WaitForElement;
 
 public class FishListPage {
 
@@ -19,8 +20,10 @@ public class FishListPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void clickOnAngelfish(){
+    public AngelfishListPage clickOnAngelfish(){
+        WaitForElement.waitUntilElementIsVisible(angelfishIdLink);
         angelfishIdLink.click();
         logger.info("Clicked on Angel Fish");
+        return new AngelfishListPage();
     }
 }
